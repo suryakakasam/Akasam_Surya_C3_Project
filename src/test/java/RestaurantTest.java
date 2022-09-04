@@ -107,6 +107,30 @@ class RestaurantTest {
         assertThrows(ItemNotFoundException.class,
                 () -> restaurant.removeFromMenu("French fries"));
     }
+
+    /** NEW TEST - FEATURE getOrderValue YET TO BE IMPLEMENTED
+     * Details : When getOrderValue on a restaurant object is called with valid Item Names,
+     *           the method should return the estimated cost.
+     */
+    @Test void get_order_value_must_return_the_estimated_cost_when_valid_item_names_are_passed()
+            throws DuplicateItemException, ItemNotFoundException {
+        String item1Name = "Item-1", item2Name = "Item-2";
+        int item1Price = 10, item2Price = 20;
+
+        restaurant.addToMenu(item1Name, item1Price);
+        restaurant.addToMenu(item2Name, item2Price);
+
+        assertEquals((item1Price + item2Price), restaurant.getOrderValue(item1Name, item2Name));
+    }
+
+    /** NEW TEST - FEATURE getOrderValue YET TO BE IMPLEMENTED
+     * Details : When getOrderValue on a restaurant object is called with invalid Item Names,
+     *           the method should throw an ItemNotFoundException
+     */
+    @Test void get_order_value_should_throw_exception_when_invalid_item_name_is_passed() {
+        assertThrows(ItemNotFoundException.class,
+                () -> restaurant.getOrderValue("Unknown Item"));
+    }
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 
