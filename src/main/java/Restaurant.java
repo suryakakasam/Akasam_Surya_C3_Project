@@ -75,6 +75,23 @@ public class Restaurant {
         menu.clear();
     }
 
+    /** NEW FEATURE
+     * Details : This method takes in a Varargs of Item names (String) and returns the total cost of the order
+     * Throws  : ItemNotFoundException
+     */
+    public int getOrderValue(String... itemNames) throws ItemNotFoundException {
+        int orderValue = 0;
+
+        for (String itemName : itemNames) {
+            Item selectedItem = findItemByName(itemName);
+            if (selectedItem == null)
+                throw new ItemNotFoundException(itemName, name);
+            orderValue += selectedItem.getPrice();
+        }
+
+        return orderValue;
+    }
+
     public void displayDetails() {
         System.out.println("Restaurant:" + name + "\n"
                 + "Location:" + location + "\n"

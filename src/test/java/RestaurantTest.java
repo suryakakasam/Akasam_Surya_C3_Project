@@ -108,7 +108,7 @@ class RestaurantTest {
                 () -> restaurant.removeFromMenu("French fries"));
     }
 
-    /** NEW TEST - FEATURE getOrderValue YET TO BE IMPLEMENTED
+    /** NEW TEST - FEATURE getOrderValue IMPLEMENTED
      * Details : When getOrderValue on a restaurant object is called with valid Item Names,
      *           the method should return the estimated cost.
      */
@@ -123,7 +123,7 @@ class RestaurantTest {
         assertEquals((item1Price + item2Price), restaurant.getOrderValue(item1Name, item2Name));
     }
 
-    /** NEW TEST - FEATURE getOrderValue YET TO BE IMPLEMENTED
+    /** NEW TEST - FEATURE getOrderValue IMPLEMENTED
      * Details : When getOrderValue on a restaurant object is called with invalid Item Names,
      *           the method should throw an ItemNotFoundException
      */
